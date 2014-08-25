@@ -1,12 +1,6 @@
 \documentclass[11pt]{article}
-
-%page settings
-\marginparwidth 0.5in
-\oddsidemargin 0.25in
-\evensidemargin 0.25in
-\marginparsep 0.25in
-\topmargin 0.15in
-\textwidth 6in \textheight 8 in
+\usepackage{anysize} 
+\marginsize{2cm}{2cm}{2cm}{2cm} 
 
 \usepackage{multirow}
 \usepackage{tabularx}
@@ -14,16 +8,16 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{hyperref}
-
 \usepackage{fixltx2e}
-
 \usepackage{mathtools}
-
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{adjustbox}
 \usepackage{subcaption}
 
-%headers & footers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	headers & footers							%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -31,6 +25,9 @@
 \lhead{Segundo Semestre 2014}
 \rfoot{Página \thepage}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	comandos									%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\labno}{1}
 \newcommand{\labtitle}{Taller de Sistemas Computacionales}
@@ -45,7 +42,10 @@
 \begin{titlepage}
 \begin{center}
 
-%title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	título página inicial						%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \includegraphics[width=70pt]{logos/utfsm.pdf} \\
 {\Large \textsc{Universidad Técnica Federico Santa María} \\}
 {\Large \textsc{Departamento de Informática} \\ \vspace{4pt}}
@@ -53,7 +53,9 @@
 {\LARGE \textsc{Tarea No. \labno} \\}
 {\LARGE \textsc{\labtitle} \\ \vspace{50pt}}
 
-%authors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	autores										%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft}
 {\large \nameone} \\
@@ -74,20 +76,256 @@
 
 
 \section{Descripción}
+Mediante el software de virtualización VirtualBox, se crearán dos máquinas virtuales de la distribución de Linux CentOS 6.5 x86, en su versión desktop y minimal (sin entorno gráfico). Para ambas versiones, se registrará su tiempo de instalación, uso de recursos, y además de configurar una red NAT y otra bridge dentro de ellas.   
 
 \section{Análisis y Desarrollo}
+\subsection{Instalación}
+Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ftp://ftp.inf.utfsm.cl/pub/Linux/CentOS/6.5/isos/i386/}. Las máquinas virtuales, fueron configuradas para disponer de una memoria principal de 1024 MB y una memoria secundaria de almacenamiento de 10 GB.
+	\subsubsection{CentOS minimal version}
+		\begin{enumerate}
+			\item 
+				\begin{minipage}[t]{\linewidth}
+			          \raggedright
+			          \adjustbox{valign=t}{
+			            \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/primera.png}
+			          }
+			          \medskip
+			          \\Del menú de inicio, seleccionar la primera opción, instalar o actualizar un sistema existente.
+			    \end{minipage}
+			
+			\item Puesto que se trata de un máquina virtual, omitir el chequeo de los dispositivos de DVD o usb.
+			\item Elegir el idioma utilizado para realizar la instalación.
+			\item Elegir la distribución del teclado.
+
+			\item 
+				\begin{minipage}[t]{\linewidth}
+			          \raggedright
+			          \adjustbox{valign=t}{
+			            \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/diskN.png}
+			          }
+			          \medskip
+			          \\En caso de contar con dispositivos de almacenamiento especializados como iSCSI, SAN, etc, marcar la segunda opción, sino, la primera es la que se elige. Dar en siguiente.
+			    \end{minipage}			
+
+			\item El disco que se utilizará para la instalcion ha sido detectado, confirmar el descarte de todos los datos.
+			\item Escribir el nombre del computador o hostname.
+			\item 				
+				\begin{minipage}[t]{\linewidth}
+			          \raggedright
+			          \adjustbox{valign=t}{
+			            \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/red.png}
+			          }
+			          \medskip
+			          \\Dar click en el boton \textbf{Configure la red}. Seleccionar la interfas System eth0.
+			    \end{minipage}	
+
+			\item
+				\begin{minipage}[t]{\linewidth}
+			          \raggedright
+			          \adjustbox{valign=t}{
+			            \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/red2.png}
+			          }
+			          \medskip
+			          \\Posteriormente, dar click en editar y marcar el checkbox \textbf{Conectar automáticamente}. Dar click a Aplicar. Luego hacer click en Cerrar y después Siguiente.
+			    \end{minipage}	
+
+			\item 
+				\begin{minipage}[t]{\linewidth}
+			          \raggedright
+			          \adjustbox{valign=t}{
+			            \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/huso.png}
+			          }
+			          \medskip
+			          \\Elegir la zona horaria, dependiendo de la ubicación geográfica. Siguiente. 
+			    \end{minipage}	
+			
+			\item Escribir la contraseña del usuario root. Confirmar la contraseña. Siguiente.
+			\item 
+				\begin{minipage}[t]{\linewidth}
+			          \raggedright
+			          \adjustbox{valign=t}{
+			            \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/particion.png}
+			          }
+			          \medskip
+			          \\Proceso de particionado del disco virtual. Elegir usar todo el espacio. Siguiente. 
+			    \end{minipage}	
+
+			\item Confirmar \textbf{Escribir cambios al disco}.
+
+			\item 
+				\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/instalacion.png}
+			        }
+			        \medskip
+			        \\Comienza el proceso de instalación. 
+		        \end{minipage}	
+
+		    \item 
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/fin.png}
+			        }
+			        \medskip
+			        \\Instalación finalizada. Reiniciar. 
+		        \end{minipage}	
+
+		   	\item 
+		   		\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/uname.png}
+			        }
+			        \medskip
+			        \\Tipear el nombre de usuario root y su contraseña. Listo. 
+		        \end{minipage}	
+
+		    \item 
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/MIN/instalacion/top.png}
+			        }
+			        \medskip
+			        \\Comando top, para visualizar la utilización de recursos del sistema. 
+		        \end{minipage}
+		\end{enumerate}
+
+	\subsubsection{CentOS desktop version}	
+		\begin{enumerate}
+			\item 
+				\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/boot-menu.png}
+			        }
+			        \medskip
+			        \\Del menú de inicio, seleccionar la opción \textbf{Boot} o iniciar. 
+		        \end{minipage}
+
+		    \item
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/desktop.png}
+			        }
+			        \medskip
+			        \\Dentro del escritorio, hacer doble click sobre el ícono \textbf{Install to Hard Drive}. 
+		        \end{minipage}	
+
+		    \item Hacer click en Siguiente, en el asistente de instalación.
+		    \item Seleccionar la distribución del teclado. Siguiete.
+		    \item 
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/almacenamiento.png}
+			        }
+			        \medskip
+			        \\En caso de contar con dispositivos de almacenamiento especializados como iSCSI, SAN, etc, marcar la segunda opción, sino, la primera es la que se elige. Dar en siguiente. 
+		        \end{minipage}	
+
+		    \item Escribir el nombre del computador o hostname.
+		    \item Escoger la zona horaria, dependiendo de la ubicación geográfica. Siguiente.
+		    \item 
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/root-password.png}
+			        }
+			        \medskip
+			        \\Suministrar la contraseña del usuario root. Confirmar. Siguiente. 
+		        \end{minipage}
+
+		    \item 
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/particion.png}
+			        }
+			        \medskip
+			        \\Proceso de particionado del disco virtual. Elegir usar todo el espacio. Siguiente. 
+		        \end{minipage}
+
+		    \item 
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/instalacion.png}
+			        }
+			        \medskip
+			        \\Instalación del sistema Se copian todos los archivos necesarios al disco virtual. 
+		        \end{minipage}
+
+		    \item
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/setup.png}
+			        }
+			        \medskip
+			        \\Proceso de configuración post instalación. Siguiente. 
+		        \end{minipage}
+
+		    \item 
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/licencia.png}
+			        }
+			        \medskip
+			        \\Leer y aceptar acuerdo de licencia. Siguiente. 
+		        \end{minipage}
+
+		    \item Crear una nueva cuenta de usuario, para poder utilizar el sistema.
+		    \item Ingresar hora y fechas actuales.
+		    \item Kdump. Este es el último del asistente de configuración, donde pregunta si Kdump debe ser activado o no. Dejar los valores por defecto. Finalizar.
+
+		    \item
+		    	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/login.png}
+			        }
+			        \medskip
+			        \\Después de reiniciado el sistema, se presentará la pantalla de login para iniciar sesión. 
+		        \end{minipage}
+
+	        \item
+	        	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/CentOS.png}
+			        }
+			        \medskip
+			        \\Después de iniciar sesión, se presentará el escritorio de CentOS 6.5 Desktop.
+		        \end{minipage}
+
+		    \item
+	        	\begin{minipage}[t]{\linewidth}
+			        \raggedright
+			        \adjustbox{valign=t}{
+			        \includegraphics[width=.4\linewidth]{../ss/FULL/instalacion/top.png}
+			        }
+			        \medskip
+			        \\Comando top, para visualizar la utilización de recursos del sistema.
+		        \end{minipage}
+
+		\end{enumerate}
+\subsection{Configuración de Red}
+\subsubsection{Red NAT}
+\subsubsection{Red bridge}
+
 
 \section{Referencias}
-\begin{itemize}
-\item Computer Networking A Top-Down Approach 6th Edition
-\item \url{https://networkx.github.io/}
-\item \url{http://www.cablemap.info/}
-\item \url{http://submarine-cable-map-2013.telegeography.com/}
-\item \scriptsize \url{http://curiosidades.batanga.com/2011/08/13/cables-submarinos-la-base-de-las-telecomunicaciones}
-\item \url{http://www.profesores.frc.utn.edu.ar/sistemas/ingsanchez/Redes/Archivos/enrutam.asp#_Toc522523385}
-\item \small \url{http://computernetworkingnotes.com/routing-static-dynamics-rip-ospf-igrp-eigrp/basic-of-routing.html}
-\item \url{http://users.crhc.illinois.edu/nhv/09fall.598/routing_dv.pdf}
-\item \url{http://www.cs.iastate.edu/~cs586/notes/ch3-5slides.pdf}
-\end{itemize}
-
+	\begin{itemize}
+		\item \url{https://blogs.oracle.com/fatbloke/entry/networking_in_virtualbox1}
+		\item \url{http://serverfault.com/questions/229860/vmware-networking-mode-nat-or-bridged}
+		\item \url{http://blog-rat.blogspot.com/2009/05/bridged-vs-host-only-vs-nat.html}
+		\item \url{http://www.faqs.org/docs/securing/chap9sec90.html}
+		\item \scriptsize \url{https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Reference_Guide/ch-networkscripts.html}
+		\item \scriptsize \url{http://extr3metech.wordpress.com/2013/05/23/configuring-network-in-centos-6-3-virtual-box-screenshots/}
+	\end{itemize}
 \end{document}
