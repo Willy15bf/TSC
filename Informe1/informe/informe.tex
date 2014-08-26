@@ -80,14 +80,14 @@ Mediante el software de virtualización VirtualBox, se crearán dos máquinas vi
 
 \section{Análisis y Desarrollo}
 \subsection{Instalación}
-Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ftp://ftp.inf.utfsm.cl/pub/Linux/CentOS/6.5/isos/i386/}. Las máquinas virtuales, fueron configuradas para disponer de una memoria principal de 1024 MB y una memoria secundaria de almacenamiento de 10 GB.
+Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ftp://ftp.inf.utfsm.cl/pub/Linux/CentOS/6.5/isos/i386/}. Las máquinas virtuales, fueron configuradas para disponer de una memoria principal de 1024 MB y una memoria secundaria de almacenamiento de 10 GB. La versión mínima tomó alrededor de siete minutos en instalarse, en tanto que a la versión desktop le tomó un poco más de nueve minutos.
 	\subsubsection{CentOS minimal version}
 		\begin{enumerate}
 			\item 
 				\begin{minipage}[t]{\linewidth}
 			          \raggedright
 			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/primera.png}
+			            \includegraphics[width=.45\linewidth]{screenshots/MIN/instalacion/primera.png}
 			          }
 			          \medskip
 			          \\Del menú de inicio, seleccionar la primera opción, instalar o actualizar un sistema existente.
@@ -101,7 +101,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 				\begin{minipage}[t]{\linewidth}
 			          \raggedright
 			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/diskN.png}
+			            \includegraphics[width=.45\linewidth]{screenshots/MIN/instalacion/diskN.png}
 			          }
 			          \medskip
 			          \\En caso de contar con dispositivos de almacenamiento especializados como iSCSI, SAN, etc, marcar la segunda opción, sino, la primera es la que se elige. Dar en siguiente.
@@ -113,7 +113,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 				\begin{minipage}[t]{\linewidth}
 			          \raggedright
 			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/red.png}
+			            \includegraphics[width=.45\linewidth]{screenshots/MIN/instalacion/red.png}
 			          }
 			          \medskip
 			          \\Dar click en el boton \textbf{Configure la red}. Seleccionar la interfas System eth0.
@@ -123,7 +123,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 				\begin{minipage}[t]{\linewidth}
 			          \raggedright
 			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/red2.png}
+			            \includegraphics[width=.45\linewidth]{screenshots/MIN/instalacion/red2.png}
 			          }
 			          \medskip
 			          \\Posteriormente, dar click en editar y marcar el checkbox \textbf{Conectar automáticamente}. Dar click a Aplicar. Luego hacer click en Cerrar y después Siguiente.
@@ -133,7 +133,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 				\begin{minipage}[t]{\linewidth}
 			          \raggedright
 			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/huso.png}
+			            \includegraphics[width=.45\linewidth]{screenshots/MIN/instalacion/huso.png}
 			          }
 			          \medskip
 			          \\Elegir la zona horaria, dependiendo de la ubicación geográfica. Siguiente. 
@@ -144,7 +144,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 				\begin{minipage}[t]{\linewidth}
 			          \raggedright
 			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/particion.png}
+			            \includegraphics[width=.45\linewidth]{screenshots/MIN/instalacion/particion.png}
 			          }
 			          \medskip
 			          \\Proceso de particionado del disco virtual. Elegir usar todo el espacio. Siguiente. 
@@ -156,7 +156,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 				\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/instalacion.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/MIN/instalacion/instalacion.png}
 			        }
 			        \medskip
 			        \\Comienza el proceso de instalación. 
@@ -166,7 +166,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/fin.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/MIN/instalacion/fin.png}
 			        }
 			        \medskip
 			        \\Instalación finalizada. Reiniciar. 
@@ -176,7 +176,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		   		\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/uname.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/MIN/instalacion/uname.png}
 			        }
 			        \medskip
 			        \\Tipear el nombre de usuario root y su contraseña. Listo. 
@@ -186,7 +186,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/MIN/instalacion/top.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/MIN/rendimiento/top.png}
 			        }
 			        \medskip
 			        \\Comando top, para visualizar la utilización de recursos del sistema. 
@@ -199,7 +199,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 				\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/boot-menu.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/boot-menu.png}
 			        }
 			        \medskip
 			        \\Del menú de inicio, seleccionar la opción \textbf{Boot} o iniciar. 
@@ -209,7 +209,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/desktop.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/desktop.png}
 			        }
 			        \medskip
 			        \\Dentro del escritorio, hacer doble click sobre el ícono \textbf{Install to Hard Drive}. 
@@ -221,7 +221,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/almacenamiento.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/almacenamiento.png}
 			        }
 			        \medskip
 			        \\En caso de contar con dispositivos de almacenamiento especializados como iSCSI, SAN, etc, marcar la segunda opción, sino, la primera es la que se elige. Dar en siguiente. 
@@ -233,7 +233,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/root-password.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/root-password.png}
 			        }
 			        \medskip
 			        \\Suministrar la contraseña del usuario root. Confirmar. Siguiente. 
@@ -243,7 +243,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/particion.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/particion.png}
 			        }
 			        \medskip
 			        \\Proceso de particionado del disco virtual. Elegir usar todo el espacio. Siguiente. 
@@ -253,7 +253,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/instalacion.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/instalacion.png}
 			        }
 			        \medskip
 			        \\Instalación del sistema Se copian todos los archivos necesarios al disco virtual. 
@@ -263,7 +263,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/setup.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/setup.png}
 			        }
 			        \medskip
 			        \\Proceso de configuración post instalación. Siguiente. 
@@ -273,7 +273,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/licencia.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/licencia.png}
 			        }
 			        \medskip
 			        \\Leer y aceptar acuerdo de licencia. Siguiente. 
@@ -287,7 +287,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 		    	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/login.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/login.png}
 			        }
 			        \medskip
 			        \\Después de reiniciado el sistema, se presentará la pantalla de login para iniciar sesión. 
@@ -297,7 +297,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 	        	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/CentOS.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/instalacion/CentOS.png}
 			        }
 			        \medskip
 			        \\Después de iniciar sesión, se presentará el escritorio de CentOS 6.5 Desktop.
@@ -307,25 +307,30 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 	        	\begin{minipage}[t]{\linewidth}
 			        \raggedright
 			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{ss/FULL/instalacion/top.png}
+			        \includegraphics[width=.45\linewidth]{screenshots/FULL/rendimiento/top.png}
 			        }
 			        \medskip
 			        \\Comando top, para visualizar la utilización de recursos del sistema.
 		        \end{minipage}
 		    \end{enumerate}
 
-		    Respecto del consumo de recursos de ambos sistemas, se podía anticipar con certeza que, CentOS en su versión mínima, es más eficiente que en su versión de escritorio, dado que, entre otras diferencias, la versión mínima no cuenta con un entorno de escritorio gráfico como Gnome. Es así como CentOS mínimo, ocupa alrededor de $91.744 [MB]$ de memoria principal; en cambio CentOS desktop ocupa alrededor de $336.208 [MB]$ de memoria principal.
+		    
+\subsection{Rendimiento}
+Respecto del consumo de recursos de ambos sistemas, se podía anticipar con certeza que, CentOS en su versión mínima, es más eficiente que en su versión de escritorio, dado que, entre otras diferencias, la versión mínima no cuenta con un entorno de escritorio gráfico como Gnome. Es así como CentOS mínimo, ocupa alrededor de $91.744 [MB]$ de memoria principal; en cambio CentOS desktop ocupa alrededor de $336.208 [MB]$ de memoria principal. 
+
+
 \subsection{Configuración de Red}
 \subsubsection{Red NAT}
-	En VirtualBox, este es el modo de red por defecto en las nuevas máquinas virtuales. Cuando el sistema operativo invitado inicia, típicamente utiliza DHCP para obtener una dirección IP. VirtualBox alineará esta petición DHCP y le comunicará al SO invitado su dirección IP asignada y la puerta de enlace para el enrutamiento de las conecciones salientes. En este modo, cada máquina virtual es asignada a la misma dirección IP (10.0.2.15) porque cada una de estas piensa que están en su propia red aislada. Y cuando estas envían su tráfico a través de la puerta de enlace (10.0.2.2), VirtualBox reescribe los paquetes para hacerlos parecer que fueron enviados desde el Host, en vez del SO invitado (dentro del Host o huésped).
-	Esto significa que el SO invitado, funcionará incluso si el Host se mueve desde una red a otra (como un notebook moviéndose en distintas ubicaciones), y desde conexiones inalámbricas a conexiones cableadas también. Lógicamente, una red de este tipo de ve de esta forma:
+En VirtualBox, este es el modo de red por defecto en las nuevas máquinas virtuales. Cuando el sistema operativo invitado inicia, típicamente utiliza DHCP para obtener una dirección IP. VirtualBox alineará esta petición DHCP y le comunicará al SO invitado su dirección IP asignada y la puerta de enlace para el enrutamiento de las conecciones salientes. En este modo, cada máquina virtual es asignada a la misma dirección IP (10.0.2.15) porque cada una de estas piensa que están en su propia red aislada. Y cuando estas envían su tráfico a través de la puerta de enlace (10.0.2.2), VirtualBox reescribe los paquetes para hacerlos parecer que fueron enviados desde el Host, en vez del SO invitado (dentro del Host o huésped).
+Esto significa que el SO invitado, funcionará incluso si el Host se mueve desde una red a otra (como un notebook moviéndose en distintas ubicaciones), y desde conexiones inalámbricas a conexiones cableadas también. Lógicamente, una red de este tipo de ve de esta forma:
 
 	\begin{figure}[ht]
 	\center
-	\includegraphics[width=0.5\linewidth]{ss/nat-network.png} 
+	\includegraphics[width=0.5\linewidth, height=6.5cm]{screenshots/nat-network.png} 
 	\caption{Esquema de una red NAT}
 	\end{figure}
 
+\clearpage
 
 \subsubsection{Red bridge}
 	Redes tipo bridge son usadas cuando se quiere que la máquina virtual sea un miembro completo de la red, i.e. que se comporte igual que la máquina huésped en la red.
@@ -334,14 +339,14 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 
 	\begin{figure}[ht]
 	\center
-	\includegraphics[width=0.5\linewidth]{ss/MIN/bridge/bridge-mv-min.png}
+	\includegraphics[width=0.5\linewidth]{screenshots/MIN/bridge/bridge-mv-min.png}
 	\end{figure}
 
 	El efecto en esto es que cada MV tiene acceso a la red física en la misma forma que el host. Puede acceder cualquier servicio en la red como por ejemplo servicios DHCP externos, servicios de búsqueda de nombre e información de ruteo, tal como el host lo hace. Lógicamente la red se ve de esta forma:
 
 	\begin{figure}[ht]
 	\center
-	\includegraphics[width=0.75\linewidth]{ss/bridge-network.png} 
+	\includegraphics[width=0.75\linewidth]{screenshots/bridge-network.png} 
 	\caption{Esquema de una red bridge} 
 	\end{figure}
 
