@@ -316,17 +316,17 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 
 		    
 \subsection{Rendimiento}
-Respecto del consumo de recursos de ambos sistemas, se podía anticipar con certeza que, CentOS en su versión mínima, es más eficiente que en su versión de escritorio, dado que, entre otras diferencias, la versión mínima no cuenta con un entorno de escritorio gráfico como Gnome. Es así como CentOS mínimo, ocupa alrededor de $91.744 [MB]$ de memoria principal; en cambio CentOS desktop ocupa alrededor de $336.208 [MB]$ de memoria principal. 
+Respecto del consumo de recursos de ambos sistemas, se podía anticipar con certeza que, CentOS en su versión mínima, es más eficiente que en su versión de escritorio, dado que, entre otras diferencias, la versión mínima no cuenta con un entorno de escritorio gráfico como Gnome. Es así como CentOS mínimo, ocupa alrededor de $91.744 [MB]$ de memoria principal; en cambio CentOS desktop ocupa alrededor de $336.208 [MB]$ de memoria principal. Respecto del espacio requerido en el disco duro virtual, para la instalación del sistema operativo, se tiene lo siguiente: 
 
 
 \subsection{Configuración de Red}
 \subsubsection{Red NAT}
-En VirtualBox, este es el modo de red por defecto en las nuevas máquinas virtuales. Cuando el sistema operativo invitado inicia, típicamente utiliza DHCP para obtener una dirección IP. VirtualBox alineará esta petición DHCP y le comunicará al SO invitado su dirección IP asignada y la puerta de enlace para el enrutamiento de las conecciones salientes. En este modo, cada máquina virtual es asignada a la misma dirección IP (10.0.2.15) porque cada una de estas piensa que están en su propia red aislada. Y cuando estas envían su tráfico a través de la puerta de enlace (10.0.2.2), VirtualBox reescribe los paquetes para hacerlos parecer que fueron enviados desde el Host, en vez del SO invitado (dentro del Host o huésped).
+En VirtualBox, este es el modo de red por defecto en las nuevas máquinas virtuales. Cuando el sistema operativo invitado inicia, típicamente utiliza DHCP para obtener una dirección IP. VirtualBox alineará esta petición DHCP y le comunicará al SO invitado su dirección IP asignada y la puerta de enlace para el enrutamiento de las conexiones salientes. En este modo, cada máquina virtual es asignada a la misma dirección IP (\textbf{10.0.2.15}) porque cada una de estas piensa que están en su propia red aislada. Y cuando estas envían su tráfico a través de la puerta de enlace (10.0.2.2), VirtualBox reescribe los paquetes para hacerlos parecer que fueron enviados desde el Host, en vez del SO invitado (dentro del Host o huésped).
 Esto significa que el SO invitado, funcionará incluso si el Host se mueve desde una red a otra (como un notebook moviéndose en distintas ubicaciones), y desde conexiones inalámbricas a conexiones cableadas también. Lógicamente, una red de este tipo de ve de esta forma:
 
 	\begin{figure}[ht]
 	\center
-	\includegraphics[width=0.5\linewidth, height=6.5cm]{screenshots/nat-network.png} 
+	\includegraphics[width=0.5\linewidth, height=5cm]{screenshots/nat-network.png} 
 	\caption{Esquema de una red NAT}
 	\end{figure}
 
@@ -350,6 +350,7 @@ Esto significa que el SO invitado, funcionará incluso si el Host se mueve desde
 	\caption{Esquema de una red bridge} 
 	\end{figure}
 
+En el caso de la presente tarea, con ambas máquinas virtuales corriendo simultaneamente, estas obtienen su dirección IP desde el servicio DHCP de la Universidad. Es así como la versión mínima de CentOS, obtuvo una dirección IP igual a \textbf{10.6.229.163}. En cambio la versión desktop, una dirección IP igual a \textbf{10.6.229.163}. Nótese la diferencia cuando se tenían configuradas, ambas máquinas virtuales con NAT, donde estas tenían la misma dirección IP (\textbf{10.0.2.15}).
 
 \section{Referencias}
 	\begin{itemize}
