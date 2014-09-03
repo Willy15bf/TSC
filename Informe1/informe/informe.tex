@@ -299,7 +299,7 @@ Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ft
 \subsection{Rendimiento}
 Respecto del consumo de recursos de ambos sistemas, se podía anticipar con certeza que, CentOS en su versión mínima, es más eficiente que en su versión de escritorio, dado que, entre otras diferencias, la versión mínima no cuenta con un entorno de escritorio gráfico como Gnome. Es así como CentOS mínimo, ocupa alrededor de $91.744 [MB]$ de memoria principal; en cambio CentOS desktop ocupa alrededor de $336.208 [MB]$ de memoria principal. Respecto del espacio requerido en el disco duro virtual, para la instalación del sistema operativo, se tiene que en la versión mínima, la partición raíz (``/''), con un espacio disponible de $8.7 [GB]$, ocupa $728 [MB]$ equivalentes al 9\% del total de la partición; en cambio la version desktop, con un partición raíz del mismo tamaño, ocupa $4.8 [GB]$ equivalentes al 58\% de esta.  
 
-\textbf{Screenshots de los comandos \textit{top}, \textit{df} y \textit{free} ejecutados en consola, se encuentran dentro del directorio \textit{screenshots/rendimiento}, divididos por versión del SO CentOS.}
+\textbf{Screenshots de los comandos \textit{top}, \textit{df} y \textit{free} ejecutados en consola, se encuentran dentro del directorio \textit{screenshots/rendimiento}, divididos por versión del SO CentOS (FULL Y MIN).}
 
 
 \subsection{Configuración de Red}
@@ -345,7 +345,20 @@ Los archivos de configuración de red, son principalmente:
 	\item \textbf{/etc/sysconfig/network-scripts/ifcfg-[nombre-interfaz]} Para cada interfaz, hay un correspondiente script de configuración de interfaz. Cada uno de estos archivos provee información específica de una interfaz de red en particular. En el caso de la presente tarea, el nombre de la interfaz utilizada es \textbf{eth0}.
 \end{itemize}
 
-\textbf{Screenshots de los archivos de configuración mencionados anteriormente, se encuentran dentro del directorio \textit{screenshots/networking}, separados por tipo de red (bridge o NAT) y luego por versión del SO CentOS.}
+\textbf{Screenshots de los archivos de configuración mencionados anteriormente, se encuentran dentro del directorio \textit{screenshots/networking}, separados por tipo de red (bridge o NAT) y luego por versión del SO CentOS (FULL Y MIN).}
+
+
+\begin{table}[h]
+\begin{tabular}{cc|ccccccc|cc|}
+     &       & $x_1$ & $x_2$ & $s_3$ & $e_1$ & $e_2$ & $a_1$ & $a_2$ &     &        \\
+Base & $C_j$    & -3 & -5 & 0   & 0  & 0  & M  & M  & $b_i$  & $b_i/a_{ij}$ \\ \hline
+$x_2$   & -5    & 0  & 1  & 1   & 0  & 0  & 0  & 0  & 3   &        \\
+$e_2$   & 0     & 0  & 0  & 13  & 1  & 8  & -1 & -8 & 27  &        \\
+$a_1$   & -3    & 1  & 0  & 2   & 0  & 1  & 0  & -1 & 4   &        \\ \hline
+     & $z_j$    & -3 & -5 & -11 & 0  & -3 & 0  & 3  & -27 &        \\
+     & $C_j-z_j$ & 0  & 0  & 11  & 0  & 3  & M  &    &     &       
+\end{tabular}
+\end{table}
 
 
 \section{Referencias}
