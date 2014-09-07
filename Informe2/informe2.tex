@@ -29,12 +29,12 @@
 %	comandos									%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\labno}{1}
+\newcommand{\labno}{2}
 \newcommand{\labtitle}{Taller de Sistemas Computacionales}
 \newcommand{\nameone}{Iván González López}
 \newcommand{\emailone}{ivan.gonzalezlo@alumnos.usm.cl}
 \newcommand{\rolone}{2973523-9}
-\newcommand{\nametwo}{Guillermo Baeza}
+\newcommand{\nametwo}{Guillermo Baeza Figueroa}
 \newcommand{\emailtwo}{guillermo.baeza@alumnos.usm.cl}
 \newcommand{\roltwo}{2973600-6}
 
@@ -76,298 +76,69 @@
 
 
 \section{Descripción}
-Mediante el software de virtualización VirtualBox, se crearán dos máquinas virtuales de la distribución de Linux CentOS 6.5 x86, en su versión desktop (full) y minimal (sin entorno gráfico). Para ambas versiones, se registrará su tiempo de instalación, uso de recursos, y además de configurar una red NAT y otra bridge dentro de ellas.   
-
+Para este segundo informe, realizamos la conexión a través de un servidor de máquinas virtuales a las máquinas que habían sido previamente creadas, las que tienen dos versiones distintas de Linux CentOs: una versión desktop (full) y otra servidor mínimo (sin entorno gráfico).\par
+El trabajo consistió en realizar un primer acercamiento al sistema CentOs, por lo que lo primero fue configurar las cuentas de usuario y posteriormente verificar algunos parámetros de red. El desarrollo de todo esto se encuentra en la siguiente sección.
 \section{Análisis y Desarrollo}
-\subsection{Instalación}
-Las imágenes iso, fueron descargadas del repositorio de la Universidad, \url{ftp://ftp.inf.utfsm.cl/pub/Linux/CentOS/6.5/isos/i386/}. Las máquinas virtuales, fueron configuradas para disponer de una memoria principal de 1024 MB y una memoria secundaria de almacenamiento de 10 GB. La versión mínima tomó alrededor de siete minutos en instalarse, en tanto que a la versión desktop le tomó un poco más de nueve minutos.
-	\subsubsection{CentOS minimal version}
-		\begin{enumerate}
-			\item 
-				\begin{minipage}[t]{\linewidth}
-			          \raggedright
-			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{screenshots/instalacion/MIN/primera.png}
-			          }
-			          \medskip
-			          \\Luego de iniciar la máquina virtual, en el menú de inicio, seleccionar la primera opción, instalar o actualizar un sistema existente.
-			    \end{minipage}
-			
-			\item Puesto que se trata de un máquina virtual, omitir el chequeo de los dispositivos de DVD o usb.
-			\item Elegir el idioma utilizado para realizar la instalación.
-			\item Elegir la distribución del teclado.
+\subsection{Configuración de cuenta de usuario}
+Una vez iniciadas las máquinas virtuales con las dos versiones de CentOs instaladas, lo primero fue cambiar las contraseñas de las cuentas root y TSC, de las versiones de servidor y desktop respectivamente. Esto se realiza en ambas versiones con un mismo comando passwd en consola.\\
+	
+\includegraphics[width=.75\linewidth]{screenshots/minimal/passwd.png}
+    \\Comando passwd para cambiar contraseña de root en versión mínima.\\
 
-			\item 
-				\begin{minipage}[t]{\linewidth}
-			          \raggedright
-			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{screenshots/instalacion/MIN/diskN.png}
-			          }
-			          \medskip
-			          \\En caso de contar con dispositivos de almacenamiento especializados como iSCSI, SAN, etc, marcar la segunda opción, sino, la primera es la que se elige. Dar en siguiente.
-			    \end{minipage}			
+\includegraphics[width=.75\linewidth]{screenshots/desktop/passwd.png}
+    \\Comando passwd para cambiar contraseña de root en versión desktop.\\
+    
+\subsection{Recopilación de datos de red}
+\subsubsection{IP}
+De manera análoga a la primera experiencia desarrollada en nuestros computadores personales, fue necesario configurar algunos parámetros de red. Primero, se editó el archivo ubicado en \textbf{/etc/sysconfig/network-scrips/eth1} para configurar manualmente la IP de la máquina virtual. En el caso de la versión mínima, la IP configurada fue \textbf{10.6.40.225} mientras que la IP configurada en la versión desktop fue \textbf{10.6.40.195}.\\
 
-			\item El disco que se utilizará para la instalcion ha sido detectado, confirmar el descarte de todos los datos.
-			\item Escribir el nombre del computador o hostname.
-			\item 				
-				\begin{minipage}[t]{\linewidth}
-			          \raggedright
-			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{screenshots/instalacion/MIN/red.png}
-			          }
-			          \medskip
-			          \\Dar click en el boton \textbf{Configure la red}. Seleccionar la interfas System eth0.
-			    \end{minipage}	
+\includegraphics[width=.75\linewidth]{screenshots/minimal/cat-ifcfg-eth1.png}
+    \\Configuración de IP en versión mínima.\\
 
-			\item
-				\begin{minipage}[t]{\linewidth}
-			          \raggedright
-			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{screenshots/instalacion/MIN/red2.png}
-			          }
-			          \medskip
-			          \\Posteriormente, dar click en editar y marcar el checkbox \textbf{Conectar automáticamente}. Dar click a Aplicar. Luego hacer click en Cerrar y después Siguiente.
-			    \end{minipage}	
+\includegraphics[width=.75\linewidth]{screenshots/desktop/ifcfg-eth1.png}
+    \\Configuración de IP en versión desktop.\\
 
-			\item 
-				\begin{minipage}[t]{\linewidth}
-			          \raggedright
-			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{screenshots/instalacion/MIN/huso.png}
-			          }
-			          \medskip
-			          \\Elegir la zona horaria, dependiendo de la ubicación geográfica. Siguiente. 
-			    \end{minipage}	
-			
-			\item Escribir la contraseña del usuario root. Confirmar la contraseña. Siguiente.
-			\item 
-				\begin{minipage}[t]{\linewidth}
-			          \raggedright
-			          \adjustbox{valign=t}{
-			            \includegraphics[width=.45\linewidth]{screenshots/instalacion/MIN/particion.png}
-			          }
-			          \medskip
-			          \\Proceso de particionado del disco virtual. Elegir usar todo el espacio. Siguiente. 
-			    \end{minipage}	
+Por otro lado, dentro de la misma carpeta, en el archivo de \textbf{eth0} fue necesario cambiar el valor binario de NM_CONTROLLED a yes, de esta manera la gestión de la interfaz de red es llevada a cabo por el NetworkManager.\\
 
-			\item Confirmar \textbf{Escribir cambios al disco}.
+\includegraphics[width=.75\linewidth]{screenshots/minimal/ifcfg-eth0(after).png}
+    \\Configuración de NetworkManager en versión mínima.\\
 
-			\item 
-				\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/MIN/instalacion.png}
-			        }
-			        \medskip
-			        \\Comienza el proceso de instalación. 
-		        \end{minipage}	
+\includegraphics[width=.75\linewidth]{screenshots/desktop/ifcfg-eth0.png}
+    \\Configuración de NetworkManager en versión desktop.\\
 
-		    \item 
-		    	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/MIN/fin.png}
-			        }
-			        \medskip
-			        \\Instalación finalizada. Reiniciar. 
-		        \end{minipage}	
+\subsubsection{DNS}
+	En esta parte había que ver el contenido del archivo \textbf{/etc/resolv.conf} usado para resolver el nombre de los servidores en internet. Para ello, hacemos un simple comando \textit{cat}, en ambas versiones de CentOS.
+	
+\includegraphics[width=.75\linewidth]{screenshots/minimal/cat-resolv-conf.png}
+    \\Contenido archivo resolv.conf en versión mínima.\\
 
-		   	\item 
-		   		\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/MIN/uname.png}
-			        }
-			        \medskip
-			        \\Tipear el nombre de usuario root y su contraseña. Listo. 
-		        \end{minipage}			   
-		\end{enumerate}
+\includegraphics[width=.75\linewidth]{screenshots/desktop/resolv-conf.png}
+    \\Contenido archivo resolv.conf en versión desktop.\\
+	
+\subsubsection{Puerta de enlace}
+	Luego, fue necesario verificar la puerta de enlace (\textit{default gateway}) de las máquinas. Ello puede hacerse a través de un simple comando \textit{route} en ambar versiones de CentOs.
 
-	\subsubsection{CentOS desktop version}	
-		\begin{enumerate}
-			\item 
-				\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/boot-menu.png}
-			        }
-			        \medskip
-			        \\Luego de iniciar la máquina virtual, en el menú de inicio, seleccionar la opción \textbf{Boot} o iniciar. 
-		        \end{minipage}
+\includegraphics[width=.75\linewidth]{screenshots/minimal/route.png}
+    \\Puerta de enlace en versión mínima.\\
 
-		    \item
-		    	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/desktop.png}
-			        }
-			        \medskip
-			        \\Dentro del escritorio, hacer doble click sobre el ícono \textbf{Install to Hard Drive}. 
-		        \end{minipage}	
-
-		    \item Hacer click en Siguiente, en el asistente de instalación.
-		    \item Seleccionar la distribución del teclado. Siguiete.
-		    \item 
-		    	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/almacenamiento.png}
-			        }
-			        \medskip
-			        \\En caso de contar con dispositivos de almacenamiento especializados como iSCSI, SAN, etc, marcar la segunda opción, sino, la primera es la que se elige. Dar en siguiente. 
-		        \end{minipage}	
-
-		    \item Escribir el nombre del computador o hostname.
-		    \item Escoger la zona horaria, dependiendo de la ubicación geográfica. Siguiente.
-		    \item 
-		    	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/root-password.png}
-			        }
-			        \medskip
-			        \\Suministrar la contraseña del usuario root. Confirmar. Siguiente. 
-		        \end{minipage}
-
-		    \item 
-		    	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/particion.png}
-			        }
-			        \medskip
-			        \\Proceso de particionado del disco virtual. Elegir usar todo el espacio. Siguiente. 
-		        \end{minipage}
-
-		    \item 
-		    	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/instalacion.png}
-			        }
-			        \medskip
-			        \\Instalación del sistema Se copian todos los archivos necesarios al disco virtual. 
-		        \end{minipage}
-
-		    \item
-		    	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/setup.png}
-			        }
-			        \medskip
-			        \\Proceso de configuración post instalación. Siguiente. 
-		        \end{minipage}
-
-		    \item 
-		    	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/licencia.png}
-			        }
-			        \medskip
-			        \\Leer y aceptar acuerdo de licencia. Siguiente. 
-		        \end{minipage}
-
-		    \item Crear una nueva cuenta de usuario, para poder utilizar el sistema.
-		    \item Ingresar hora y fechas actuales.
-		    \item Kdump. Este es el último del asistente de configuración, donde pregunta si Kdump debe ser activado o no. Dejar los valores por defecto. Finalizar.
-
-		    \item
-		    	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/login.png}
-			        }
-			        \medskip
-			        \\Después de reiniciado el sistema, se presentará la pantalla de login para iniciar sesión. 
-		        \end{minipage}
-
-	        \item
-	        	\begin{minipage}[t]{\linewidth}
-			        \raggedright
-			        \adjustbox{valign=t}{
-			        \includegraphics[width=.45\linewidth]{screenshots/instalacion/FULL/CentOS.png}
-			        }
-			        \medskip
-			        \\Después de iniciar sesión, se presentará el escritorio de CentOS 6.5 Desktop.
-		        \end{minipage}
-		    
-		    \end{enumerate}
-
-		    
-\subsection{Rendimiento}
-Respecto del consumo de recursos de ambos sistemas, se podía anticipar con certeza que, CentOS en su versión mínima, es más eficiente que en su versión de escritorio, dado que, entre otras diferencias, la versión mínima no cuenta con un entorno de escritorio gráfico como Gnome. Es así como CentOS mínimo, ocupa alrededor de $91.744 [MB]$ de memoria principal; en cambio CentOS desktop ocupa alrededor de $336.208 [MB]$ de memoria principal. Respecto del espacio requerido en el disco duro virtual, para la instalación del sistema operativo, se tiene que en la versión mínima, la partición raíz (``/''), con un espacio disponible de $8.7 [GB]$, ocupa $728 [MB]$ equivalentes al 9\% del total de la partición; en cambio la version desktop, con un partición raíz del mismo tamaño, ocupa $4.8 [GB]$ equivalentes al 58\% de esta.  
-
-\textbf{Screenshots de los comandos \textit{top}, \textit{df} y \textit{free} ejecutados en consola, se encuentran dentro del directorio \textit{screenshots/rendimiento}, divididos por versión del SO CentOS (FULL Y MIN).}
-
-
-\subsection{Configuración de Red}
-\subsubsection{Red NAT}
-En VirtualBox, este es el modo de red por defecto en las nuevas máquinas virtuales. Cuando el sistema operativo invitado inicia, típicamente utiliza DHCP para obtener una dirección IP. VirtualBox alineará esta petición DHCP y le comunicará al OS invitado su dirección IP asignada y la puerta de enlace para el enrutamiento de las conexiones salientes. En este modo, cada máquina virtual es asignada a la misma dirección IP (\textbf{10.0.2.15}) porque cada una de estas piensa que están en su propia red aislada. Y cuando estas envían su tráfico a través de la puerta de enlace (10.0.2.2), VirtualBox reescribe los paquetes para hacerlos parecer que fueron enviados desde el Host, en vez del OS invitado (dentro del Host o huésped).
-Esto significa que el OS invitado, funcionará incluso si el Host se mueve desde una red a otra (como un notebook moviéndose en distintas ubicaciones), y desde conexiones inalámbricas a conexiones cableadas también. La estructura lógica de una red de este tipo, se ve de la siguiente forma:
-
-
-	\begin{figure}[ht]
-	\center
-	\includegraphics[width=0.5\linewidth, height=5cm]{screenshots/networking/nat/nat-network.png} 
-	\caption{Esquema de una red NAT}
-	\end{figure}
-
-\subsubsection{Red bridge}
-	Redes tipo bridge son usadas cuando se quiere que la máquina virtual sea un miembro completo de la red, i.e. que se comporte igual que la máquina huésped en la red. En este modo, un NIC virtual es ``puenteado'' a un NIC físico en el host, de la siguiente forma:
-
-	\clearpage
-
-	\begin{figure}[ht]
-	\center
-	\includegraphics[width=0.5\linewidth]{screenshots/networking/bridge/MIN/bridge-mv-min.png}
-	\caption{Ventana de configuración de red de VirtualBox.}
-	\end{figure}
-
-	El efecto en esto es que cada MV tiene acceso a la red física en la misma forma que el host. Puede acceder cualquier servicio en la red como por ejemplo servicios DHCP externos, servicios de búsqueda de nombre e información de ruteo, tal como el host lo hace. La estructura lógica de la red, se ve de esta forma:
-
-	\begin{figure}[ht]
-	\center
-	\includegraphics[width=0.75\linewidth]{screenshots/networking/bridge/bridge-network.png} 
-	\caption{Esquema de una red bridge} 
-	\end{figure}
-
-En el caso de la presente tarea, con ambas máquinas virtuales corriendo simultaneamente, estas obtienen su dirección IP desde el servicio DHCP de la Universidad. Es así como la versión mínima de CentOS, obtuvo una dirección IP igual a \textbf{10.6.229.163}. En cambio la versión desktop, una dirección IP igual a \textbf{10.6.229.163}. Nótese la diferencia cuando se tenían configuradas, ambas máquinas virtuales con NAT, donde estas tenían la misma dirección IP (\textbf{10.0.2.15}), dada por la máquina host.
-
-\subsection{Archivos de configuración de red}
-Los archivos de configuración de red, son principalmente:
-\begin{itemize}
-	\item \textbf{/etc/hosts} el principal propósito de este archivo es resolver los nombres de host que no pueden ser resueltos de ninguna otra forma. También puede ser usado para resolver los nombres de host en redes pequeñas que no cuentan con un servidor DNS. A pesar del tipo de red en la cual el computador se encuentra, este archivo debería contener una linea especificando la dirección IP del dispositivo loopback (\textbf{127.0.0.1}) como \textbf{localhost.localdomain}.
-
-	\item \textbf{/etc/resolv.conf} Este archivo especifica la dirección IP de los servidores DNS y el dominio de búsqueda. A menos que haya sido configurado de otra manera, los scripts de inicialización de red, llenan este archivo. 
-
-	\item \textbf{/etc/sysconfig/network-scripts/ifcfg-[nombre-interfaz]} Para cada interfaz, hay un correspondiente script de configuración de interfaz. Cada uno de estos archivos provee información específica de una interfaz de red en particular. En el caso de la presente tarea, el nombre de la interfaz utilizada es \textbf{eth0}.
-\end{itemize}
-
-\textbf{Screenshots de los archivos de configuración mencionados anteriormente, se encuentran dentro del directorio \textit{screenshots/networking}, separados por tipo de red (bridge o NAT) y luego por versión del SO CentOS (FULL Y MIN).}
-
-
-\begin{table}[h]
-\begin{tabular}{cc|ccccccc|cc|}
-     &       & $x_1$ & $x_2$ & $s_3$ & $e_1$ & $e_2$ & $a_1$ & $a_2$ &     &        \\
-Base & $C_j$    & -3 & -5 & 0   & 0  & 0  & M  & M  & $b_i$  & $b_i/a_{ij}$ \\ \hline
-$x_2$   & -5    & 0  & 1  & 1   & 0  & 0  & 0  & 0  & 3   &        \\
-$e_2$   & 0     & 0  & 0  & 13  & 1  & 8  & -1 & -8 & 27  &        \\
-$a_1$   & -3    & 1  & 0  & 2   & 0  & 1  & 0  & -1 & 4   &        \\ \hline
-     & $z_j$    & -3 & -5 & -11 & 0  & -3 & 0  & 3  & -27 &        \\
-     & $C_j-z_j$ & 0  & 0  & 11  & 0  & 3  & M  &    &     &       
-\end{tabular}
-\end{table}
-
-
+\includegraphics[width=.75\linewidth]{screenshots/desktop/route.png}
+    \\Puerta de enlace en versión desktop.\\
+    
+\subsubsection{Otros}
+    Finalmente, para comprobar que todo estuviera en orden y funcionando correctamente, se hace un ping bidireccional, vale decir, un ping desde la máquina virtual con CentOs minimal a la máquina con CentOs desktop y otro en sentido inverso.\\
+    
+\includegraphics[width=.75\linewidth]{screenshots/minimal/ping-to-desktop.png}
+    \\Ping desde la máquina con CentOs desktop hacia la con versión desktop.\\
+    
+\includegraphics[width=.75\linewidth]{screenshots/desktop/ping-to-min.png}
+    \\Ping desde la máquina con CentOs desktop hacia la con versión mínima.\\    
+    
+    Además, se hace un ping a la máquina del profesor cuya IP es \textbf{10.6.40.245}, desde nuestra máquina con CentOS minimal.\\
+    
+\includegraphics[width=.75\linewidth]{screenshots/minimal/ping-to-profe.png}
+    \\Ping desde la máquina con CentOs minimal hacia la del profesor.\\    
 \section{Referencias}
 	\begin{itemize}
-		\item \url{https://blogs.oracle.com/fatbloke/entry/networking_in_virtualbox1}
-		\item \url{http://serverfault.com/questions/229860/vmware-networking-mode-nat-or-bridged}
-		\item \url{http://blog-rat.blogspot.com/2009/05/bridged-vs-host-only-vs-nat.html}
-		\item \url{http://www.faqs.org/docs/securing/chap9sec90.html}
-		\item \scriptsize \url{https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Reference_Guide/ch-networkscripts.html}
-		\item \scriptsize \url{http://extr3metech.wordpress.com/2013/05/23/configuring-network-in-centos-6-3-virtual-box-screenshots/}
+		\item \url{http://encarta95.com}
 	\end{itemize}
 \end{document}
