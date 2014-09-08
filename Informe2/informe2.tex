@@ -80,14 +80,15 @@ Para este segundo informe, realizamos la conexión a través de un servidor de m
 El trabajo consistió en realizar un primer acercamiento al sistema CentOs, por lo que lo primero fue configurar las cuentas de usuario y posteriormente verificar algunos parámetros de red. El desarrollo de todo esto se encuentra en la siguiente sección.
 \section{Análisis y Desarrollo}
 \subsection{Configuración de cuenta de usuario}
-Una vez iniciadas las máquinas virtuales con las dos versiones de CentOs instaladas, lo primero fue cambiar las contraseñas de las cuentas root y TSC, de las versiones de servidor y desktop respectivamente. Esto se realiza en ambas versiones con un mismo comando passwd en consola.\\
+Una vez iniciadas las máquinas virtuales con las dos versiones de CentOs instaladas, lo primero fue cambiar las contraseñas de las cuentas root y TSC, de las versiones de servidor y desktop respectivamente. Esto se realiza en ambas versiones con un mismo comando \textit{passwd} en consola.\par
+\textit{Notar que se nos advierte que la contraseña escogida es demasiado trivial, pero aun así se nos permite utilizarla.}\\
 	
 \includegraphics[width=.75\linewidth]{screenshots/minimal/passwd.png}
-    \\Comando passwd para cambiar contraseña de root en versión mínima.\\
+    \\Comando \textit{passwd} para cambiar contraseña de root en versión mínima.\\
 
 \includegraphics[width=.75\linewidth]{screenshots/desktop/passwd.png}
-    \\Comando passwd para cambiar contraseña de root en versión desktop.\\
-    
+    \\Comando \textit{passwd} para cambiar contraseña de root en versión desktop.\\
+\newpage
 \subsection{Recopilación de datos de red}
 \subsubsection{IP}
 De manera análoga a la primera experiencia desarrollada en nuestros computadores personales, fue necesario configurar algunos parámetros de red. Primero, se editó el archivo ubicado en \textbf{/etc/sysconfig/network-scrips/eth1} para configurar manualmente la IP de la máquina virtual. En el caso de la versión mínima, la IP configurada fue \textbf{10.6.40.225} mientras que la IP configurada en la versión desktop fue \textbf{10.6.40.195}.\\
@@ -97,33 +98,33 @@ De manera análoga a la primera experiencia desarrollada en nuestros computadore
 
 \includegraphics[width=.75\linewidth]{screenshots/desktop/ifcfg-eth1.png}
     \\Configuración de IP en versión desktop.\\
-
-Por otro lado, dentro de la misma carpeta, en el archivo de \textbf{eth0} fue necesario cambiar el valor binario de NM_CONTROLLED a yes, de esta manera la gestión de la interfaz de red es llevada a cabo por el NetworkManager.\\
+    
+Por otro lado, dentro de la misma carpeta, en el archivo \textbf{eth0} fue necesario cambiar el valor binario de NM\_CONTROLLED a \textit{yes}, de esta manera la gestión de la interfaz de red es llevada a cabo por el NetworkManager.\\
 
 \includegraphics[width=.75\linewidth]{screenshots/minimal/ifcfg-eth0(after).png}
     \\Configuración de NetworkManager en versión mínima.\\
 
 \includegraphics[width=.75\linewidth]{screenshots/desktop/ifcfg-eth0.png}
     \\Configuración de NetworkManager en versión desktop.\\
-
+\newpage
 \subsubsection{DNS}
-	En esta parte había que ver el contenido del archivo \textbf{/etc/resolv.conf} usado para resolver el nombre de los servidores en internet. Para ello, hacemos un simple comando \textit{cat}, en ambas versiones de CentOS.
+	En esta parte había que ver el contenido del archivo \textbf{/etc/resolv.conf} usado para resolver el nombre de los servidores en internet. Para ello, hacemos un simple comando \textit{cat}, en ambas versiones de CentOS.\\
 	
-\includegraphics[width=.75\linewidth]{screenshots/minimal/cat-resolv-conf.png}
-    \\Contenido archivo resolv.conf en versión mínima.\\
+\includegraphics[width=.45\linewidth]{screenshots/minimal/cat-resolv-conf.png}
+    \\Contenido archivo \textit{resolv.conf} en versión mínima.\\
 
 \includegraphics[width=.75\linewidth]{screenshots/desktop/resolv-conf.png}
-    \\Contenido archivo resolv.conf en versión desktop.\\
-	
+    \\Contenido archivo \textit{resolv.conf} en versión desktop.
+\newpage
 \subsubsection{Puerta de enlace}
-	Luego, fue necesario verificar la puerta de enlace (\textit{default gateway}) de las máquinas. Ello puede hacerse a través de un simple comando \textit{route} en ambar versiones de CentOs.
+	Luego, fue necesario verificar la puerta de enlace (\textit{default gateway}) de las máquinas. Ello puede hacerse a través de un simple comando \textit{route} en ambas versiones de CentOs.\\
 
 \includegraphics[width=.75\linewidth]{screenshots/minimal/route.png}
     \\Puerta de enlace en versión mínima.\\
 
 \includegraphics[width=.75\linewidth]{screenshots/desktop/route.png}
-    \\Puerta de enlace en versión desktop.\\
-    
+    \\Puerta de enlace en versión desktop.
+\newpage
 \subsubsection{Otros}
     Finalmente, para comprobar que todo estuviera en orden y funcionando correctamente, se hace un ping bidireccional, vale decir, un ping desde la máquina virtual con CentOs minimal a la máquina con CentOs desktop y otro en sentido inverso.\\
     
@@ -137,8 +138,4 @@ Por otro lado, dentro de la misma carpeta, en el archivo de \textbf{eth0} fue ne
     
 \includegraphics[width=.75\linewidth]{screenshots/minimal/ping-to-profe.png}
     \\Ping desde la máquina con CentOs minimal hacia la del profesor.\\    
-\section{Referencias}
-	\begin{itemize}
-		\item \url{http://encarta95.com}
-	\end{itemize}
 \end{document}
